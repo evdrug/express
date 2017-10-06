@@ -1,0 +1,151 @@
+extends ../template
+
+block variables
+    - var title = 'мои работы'
+    - var header__title = 'мои работы'
+    - var header__info = 'Личный сайт веб разработчика'
+
+block content
+    .reviews-page
+        section.header
+            .container
+                .header__social
+                    include ../module/social
+                .header__menu
+                    .hamburger.js-hamburger
+                        a.hamburger__link(href="")
+                            .hamburger__img
+                .header__user
+                    .user
+                        .user__img
+                            img.user__img-pic(src="./images/user2.jpg")
+                        .user__title.user__title_sz
+                            | Друзьякин Евгений
+                        .user__info
+                            |#{header__info}
+                        .name-content__label.name-content__label_sz
+                            | <svg class="name-content__label-pic">
+                            | <use xlink:href="./images/svg/symbols.svg#portfolio_header"></use>
+                            | </svg>
+                .header__btn
+                    a.btn-arrow(href="#")
+                        | <svg class="btn-down">
+                        | <use xlink:href="./images/svg/symbols.svg#portf_arrow_down"></use>
+                        | </svg>
+
+        main.content
+            .block-triangle
+                .block-triangle__left
+                    | <svg class="triangle-left" viewBox="0 0 1000 225" preserveAspectRatio="none">
+                    | <polygon points="0,0 0,225 1000,225 1000,155"></polygon>
+                    | </svg>
+                .block-triangle__right
+                    | <svg class="triangle-right" viewBox="0 0 1000 225" preserveAspectRatio="none">
+                    | <polygon points="0,225 1000,225 1000,0 0,155"></polygon>
+                    | </svg>
+            .container
+                .container-page_column
+                    .works-wrapper
+                        h1.name-content.name-content_color.name-content_sz-49.nc-s__sz
+                            |#{title}
+                        .name-content__label-t
+                            | <svg class="name-content__label-pic">
+                            | <use xlink:href="./images/svg/symbols.svg#works_header"></use>
+                            | </svg>
+                    .wrapper-block
+                         .block
+                            section.section__block-1
+                                .school.js-school
+                                    .school__title
+                                        .name-content.name-content_color.nc-s__sz.js-slider-title
+                                            |Сайт школы онлайн
+                                            |Образования
+                                    .school__text.js-slider-tags
+                                        |HTML , CSS, JAVASCRIPT
+                                    .scholl__link-wrapper
+                                        a.scholl__link.js-slider-link(href="https://loftschool.com" target="_blanc")
+                                            |Посмотреть сайт
+                                            .scholl__link-img
+                                                | <svg class="scholl-img">
+                                                | <use xlink:href="./images/svg/symbols.svg#link"></use>
+                                                | </svg>
+                            section.section__block-2
+                                .slider-works
+                                    .slider-works__body
+                                        picture.slider-works__picture.js-slider-images
+                                            source(srcset="./images/content/bg-1.jpg, ./images/content/bg-1@2x.jpg 2x, ./images/content/bg-1@3x.jpg 3x" media="(max-width: 768px)")
+                                            img.slider-works__img(src="./images/content/bg-1@3x.jpg" )
+
+
+                            section.section__block-3
+                                .slider-works__menu
+                                    .slider-works__prev-img.js-slider-images-prev
+                                        picture.slider-works__picture
+                                            source(srcset="./images/content/bg-2.jpg, ./images/content/bg-2@2x.jpg 2x, ./images/content/bg-2@3x.jpg 3x" media="(max-width: 768px)")
+                                            img.slider-works__img(src="./images/content/bg-2@3x.jpg" )
+                                        .slider-works__prev
+                                            | <svg class="slider__arrow_down">
+                                            | <use xlink:href="./images/svg/symbols.svg#portf_arrow_down"></use>
+                                            | </svg>
+                                    .slider-works__next-img.js-slider-images-next
+                                        picture.slider-works__picture
+                                            source(srcset="./images/content/bg-3.jpg, ./images/content/bg-3@2x.jpg 2x, ./images/content/bg-3@3x.jpg 3x" media="(max-width: 768px)")
+                                            img.slider-works__img(src="./images/content/bg-3@3x.jpg" )
+                                        .slider-works__next
+                                            | <svg class="slider__arrow_up">
+                                            | <use xlink:href="./images/svg/symbols.svg#portf_arrow_up"></use>
+                                            | </svg>
+
+        section.section__reviews
+            .reviews
+                .reviews__title
+                    .name-content.name-content_color
+                        | Что обо мне
+                        | говорят
+                .reviews__wrapper-piple
+                    ul.reviews__list
+                        li.reviews__block
+                            .comment
+                                .comment__img
+                                    img.comment__img-pic(src="./images/dima.png")
+                                .comment__text
+                                    |Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+                                .comment__signature
+                                    .comment__signature-name|Ковальчук Дмитрий
+                                    .comment__signature-position|— основатель Loftschool
+                        li.reviews__block
+                            .comment
+                                .comment__img
+                                    img.comment__img-pic(src="./images/vova.jpg")
+                                .comment__text
+                                    |Этот код выдержит любые испытания. Только пожалуйста, не загружается сайт на слишком старых браузерах!
+                                .comment__signature
+                                    .comment__signature-name| Сабанцев Владимир
+                                    .comment__signature-position| — преподаватель
+                .reviews__contact
+
+                    .reviews__container-form
+                        .reviews__contact-wrapper-blur
+                        .reviews__contact-wrapper
+                            form.contact-form
+                                .contact-form__title.name-content.name-content_color.nc-s__sz
+                                    |Связаться со мной
+                                .form__row
+                                    input.contact-form__input.js-form-input(type="text" placeholder="Имя")
+                                    .error-text
+                                .form__row
+                                    input.contact-form__input.js-form-input.js-form-input-email(type="email" placeholder="Email")
+                                    .error-text
+                                .form__row
+                                    textarea.contact-form__area.js-form-input(placeholder="Ваше сообщение")
+                                    .error-text
+                                .contact-form__btns
+                                    button.contact-form__btn.js-form-btn-enter(type="submit")|Отправить
+                                    button.contact-form__btn.js-form-btn-reset(type="reset")|Очистить
+
+                    .reviews__btn-up
+                        a.arrow-up__wrapper(href="")
+                            | <svg class="arrow_up">
+                            | <use xlink:href="./images/svg/symbols.svg#portf_arrow_up"></use>
+                            | </svg>
+        include ../module/footer

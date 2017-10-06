@@ -1,0 +1,98 @@
+extends ../template
+
+
+
+
+block content
+    .wrapper-img
+        .Background
+            <canvas class="Background-canvas"></canvas>
+        .flipp.js-flipp
+        .container-pages.welcome
+            .welcome__btn-avt
+                a.btn-avt.js-btn-avt(href="")
+                    |Авторизоваться
+            .welcome__form-wrapper.js-welcome-form-wrapper
+                .welcome__form
+                    .welcome__form-user
+                        .user
+                            .user__img
+                                img.user__img-pic(src="./images/user2.jpg")
+                            .user__title
+                                |Друзьякин Евгений
+                            .user__text
+                                |Личный сайт веб разработчика
+                    .welcome__form-social
+                        include ../module/social
+                    .welcome__form-menu
+                        .menu-avt
+                            ul.menu-avt__list
+                                li.menu-avt__items
+                                    a.menu-avt__link(href="/works")
+                                        |Мои работы
+                                li.menu-avt__items
+                                    a.menu-avt__link(href="/about")
+                                        |Обо мне
+                                li.menu-avt__items
+                                    a.menu-avt__link(href="/blog")
+                                        |Блог
+                .welcome__avt
+                    .avt
+                        .avt__title
+                            .name-content.nc-s__sz
+                                |Авторизуйтесь
+                        .avt__form
+                            form.form.js-form-aut
+                                .form__row
+                                    label.form__label-input
+                                        .form__pic
+                                            |<svg class="form__img-login">
+                                            |<use xlink:href="./images/svg/symbols.svg#login"></use>
+                                            |</svg>
+                                        input.fotm__input-text.js-form-input(type="text" placeholder="Логин")
+                                        .error-text
+                                .form__row
+                                    label.form__label-input
+                                        .form__pic
+                                            |<svg class="form__img-login">
+                                            | <use xlink:href="./images/svg/symbols.svg#password"></use>
+                                            | </svg>
+                                        input.fotm__input-text.js-form-input(type="password" placeholder="Пароль")
+                                        .error-text
+                                .form__row
+                                    label.form__label-checkbox.js-checkbox
+                                        .error-text
+                                        input.fotm__check.js-fotm-check(type="checkbox")
+                                        .form__check-fake
+                                        .form__check-text|Я человек
+
+
+                                .form__row.radio
+                                    .radio__title
+                                        |Вы точно не робот?
+                                    .radio__row
+                                        label.radio__label
+                                            .error-text
+                                            input.radio__btn.js-form-rbtn(type="radio" name="robot" value="yes")
+                                            .radio__btn-fake
+                                            .radio__text|Да
+                                        label.radio__label
+                                            input.radio__btn(type="radio" name="robot" value="no" checked="checked" )
+                                            .radio__btn-fake
+                                            .radio__text|Не уверен
+                                            .error-text
+                                .form__menu
+                                    .menu-avt
+                                        ul.menu-avt__list
+                                            li.menu-avt__items
+                                                a.menu-avt__link.index.js-index(href="#")
+                                                    |На главную
+                                            li.menu-avt__items
+                                                a.menu-avt__link.js-signin(href="#")
+                                                    |Войти
+
+            .welcome__footer
+                .user-footer
+                    |© Друзьякин Евгений | создано с любовью в LoftSchool | 2017
+block script
+    script(src="./js/water.js")
