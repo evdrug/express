@@ -1,7 +1,6 @@
 extends ../template
 
 block variables
-    - var title = 'обо мне'
     - var header__title = 'обо мне'
     - var header__info = 'Личный сайт веб разработчика'
 
@@ -77,6 +76,8 @@ block content
                             .can-use__text
                                 |Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачи на Backend. Но давайте по порядку.
                         .skill
+                            each index in skilles
+                                .article__title= index.type
                             .skill__row.js-skill-row
                                 .skill-cont
                                     .skill-cont___title

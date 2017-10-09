@@ -1,6 +1,8 @@
 extends ../template
 
 
+block variables
+    - var title = 'Добро пожаловать'
 
 
 block content
@@ -28,13 +30,13 @@ block content
                         .menu-avt
                             ul.menu-avt__list
                                 li.menu-avt__items
-                                    a.menu-avt__link(href="/works")
+                                    a.menu-avt__link(href="works.html")
                                         |Мои работы
                                 li.menu-avt__items
-                                    a.menu-avt__link(href="/about")
+                                    a.menu-avt__link(href="about.html")
                                         |Обо мне
                                 li.menu-avt__items
-                                    a.menu-avt__link(href="/blog")
+                                    a.menu-avt__link(href="blog.html")
                                         |Блог
                 .welcome__avt
                     .avt

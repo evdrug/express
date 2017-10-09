@@ -8,4 +8,11 @@ router.post('/blog', ctrlBlog.createArticles);
 router.put('/blog/:id', ctrlBlog.editArticles);
 router.delete('/blog/:id', ctrlBlog.deleteArticles);
 
+const ctrlSkill= require('../controllers/skill');
+
+router.get('/skill', ctrlSkill.getSkilles);
+router.post('/skill', ctrlSkill.createSkilles);
+router.put('/skill/:id', ctrlSkill.editSkilles);
+router.delete('/skill/:id', ctrlSkill.deleteSkilles);
+
 module.exports = router;

@@ -17,6 +17,7 @@ module.exports.getArticles = function (req, res) {
 }
 
 module.exports.createArticles = function (req, res) {
+    console.log(req.body)
 
     const Model = mongoose.model('blog');
 

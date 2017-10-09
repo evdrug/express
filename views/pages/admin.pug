@@ -1,114 +1,173 @@
 extends ../template
 
 block content
-    heder.admin-header
-        .content
-            .admin-header__title
-                |Панель администрирования
-            a.admin-header__link(href="#")
-                |Вернуться на сайт
-    .nav-admin
-            .content
+    .container-admin
+        heder.admin-header
+            .container
+                .admin-header__content
+                    .admin-header__title
+                        |Панель администрирования
+                    a.admin-header__link(href="/")
+                        |Вернуться на сайт
+        .nav-admin
+            .container
             ul.nav-admin__menu
                 li.nav-admin__items
-                    a.nav-admin__link(href="#")
+                    a.nav-admin__link.nav-admin__link-active.js-admin-link(href="#" data-name="block-1")
                         |TAB 1
                 li.nav-admin__items
-                    a.nav-admin__link(href="#")
+                    a.nav-admin__link.js-admin-link(href="#" data-name="block-2")
                         |TAB 2
                 li.nav-admin__items
-                    a.nav-admin__link(href="#")
+                    a.nav-admin__link.js-admin-link(href="#" data-name="block-3")
                         |TAB 3
-    .section-content
-        .content
-            .section__tab1
-                h2|Страница «Обо мне»
-                article.admin-block
-                    h3|Frontend
-                    form
-                        table.skill-admin
-                            tr.skill-admin__row
-                                th.skill-admin__th
-                                    |Html
-                                td.skill-admin__procent
-                                    input.skill-admin__input-procent
-                                td.skill-admin__pref
-                                    |%
-                            tr.skill-admin__row
-                                th.skill-admin__th
-                                    |Html
-                                td.skill-admin__procent
-                                    input.skill-admin__input-procent
-                                td.skill-admin__pref
-                                    |%
-                            tr.skill-admin__row
-                                th.skill-admin__th
-                                    |Html
-                                td.skill-admin__procent
-                                    input.skill-admin__input-procent
-                                td.skill-admin__pref
-                                    |%
-                        button.contact-form__btn(type="submit")|Сохранить
+        .section-wrapper
+            .section-content-bg
+            .section-content
+                .container
+                    .section-content__tab.section-content__tab-active(data-name="block-1")
+                        h2.section-content__title|Страница «Обо мне»
+                        .section-content__page
+                            article.admin-block
+                                h3.admin-block__title|Frontend
+                                form
+                                    table.skill-admin
+                                        tr.skill-admin__row
+                                            th.skill-admin__th
+                                                |Html
+                                            td.skill-admin__procent
+                                                input.skill-admin__input-procent(type="text")
+                                            td.skill-admin__pref
+                                                |%
+                                        tr.skill-admin__row
+                                            th.skill-admin__th
+                                                |Html
+                                            td.skill-admin__procent
+                                                input.skill-admin__input-procent
+                                            td.skill-admin__pref
+                                                |%
+                                        tr.skill-admin__row
+                                            th.skill-admin__th
+                                                |Html
+                                            td.skill-admin__procent
+                                                input.skill-admin__input-procent
+                                            td.skill-admin__pref
+                                                |%
+                                        tr.skill-admin__row
+                                            th.skill-admin__th
+                                                | Html
+                                            td.skill-admin__procent
+                                                input.skill-admin__input-procent
+                                            td.skill-admin__pref
+                                                | %
+                                    button.contact-form__btn(type="submit")|Сохранить
 
 
-                article.admin-block
-                    h3|Backend
-                    form
-                        table.skill-admin
-                            tr.skill-admin__row
-                                th.skill-admin__th
-                                    | Html
-                                td.skill-admin__procent
-                                    input.skill-admin__input-procent
-                                td.skill-admin__pref
-                                    | %
-                            tr.skill-admin__row
-                                th.skill-admin__th
-                                    | Html
-                                td.skill-admin__procent
-                                    input.skill-admin__input-procent
-                                td.skill-admin__pref
-                                    | %
-                            tr.skill-admin__row
-                                th.skill-admin__th
-                                    | Html
-                                td.skill-admin__procent
-                                    input.skill-admin__input-procent
-                                td.skill-admin__pref
-                                    | %
-                        button.contact-form__btn(type="submit")|Сохранить
+                            article.admin-block
+                                h3.admin-block__title|Backend
+                                form
+                                    table.skill-admin
+                                        tr.skill-admin__row
+                                            th.skill-admin__th
+                                                | Html
+                                            td.skill-admin__procent
+                                                input.skill-admin__input-procent
+                                            td.skill-admin__pref
+                                                | %
+                                        tr.skill-admin__row
+                                            th.skill-admin__th
+                                                | Html
+                                            td.skill-admin__procent
+                                                input.skill-admin__input-procent
+                                            td.skill-admin__pref
+                                                | %
+                                        tr.skill-admin__row
+                                            th.skill-admin__th
+                                                | Html
+                                            td.skill-admin__procent
+                                                input.skill-admin__input-procent
+                                            td.skill-admin__pref
+                                                | %
+                                    button.contact-form__btn(type="submit")|Сохранить
 
-                article.admin-block
-                    h3|Workflow
-                    form
-                        table.skill-admin
-                            tr.skill-admin__row
-                                th.skill-admin__th
-                                    | Html
-                                td.skill-admin__procent
-                                    input.skill-admin__input-procent
-                                td.skill-admin__pref
-                                    | %
-                            tr.skill-admin__row
-                                th.skill-admin__th
-                                    | Html
-                                td.skill-admin__procent
-                                    input.skill-admin__input-procent
-                                td.skill-admin__pref
-                                    | %
-                            tr.skill-admin__row
-                                th.skill-admin__th
-                                    | Html
-                                td.skill-admin__procent
-                                    input.skill-admin__input-procent
-                                td.skill-admin__pref
-                                    | %
-                        button.contact-form__btn(type="submit")|Сохранить
-
-
+                            article.admin-block
+                                h3.admin-block__title|Workflow
+                                form
+                                    table.skill-admin
+                                        tr.skill-admin__row
+                                            th.skill-admin__th
+                                                | Html
+                                            td.skill-admin__procent
+                                                input.skill-admin__input-procent
+                                            td.skill-admin__pref
+                                                | %
+                                        tr.skill-admin__row
+                                            th.skill-admin__th
+                                                | Html
+                                            td.skill-admin__procent
+                                                input.skill-admin__input-procent
+                                            td.skill-admin__pref
+                                                | %
+                                        tr.skill-admin__row
+                                            th.skill-admin__th
+                                                | Html
+                                            td.skill-admin__procent
+                                                input.skill-admin__input-procent
+                                            td.skill-admin__pref
+                                                | %
+                                    button.contact-form__btn(type="submit")|Сохранить
 
 
-            .section__tab2
-                h2|Страница «Мои работы»
-            .section__tab3
-                h2|Страница «Блог»
+
+
+                    .section-content__tab(data-name="block-2")
+                        h2.section-content__title|Страница «Мои работы»
+                        .section-content__page
+                            .admin-block
+                                form.add-work(action="" method="POST")
+                                    .wrapper-row
+                                        .form-admin__row
+                                            label
+                                                .title-input|Название проекта
+                                                input.form-admin__input(type="text" value="" name="title-work")
+                                        .form-admin__row
+                                            label
+                                                .title-input|Технологии
+                                                input.form-admin__input(type="text" value="" name="tech-work")
+                                        .form-admin__row
+                                            label
+                                                .title-input|Загрузить картинку
+                                                .work-add
+                                                input.form-admin__input.file-down(type="file" name="photo-work")
+                                    .form-admin__row
+                                        button.contact-form__btn(type="submit")|Добавить
+
+                    .section-content__tab(data-name="block-3")
+                        h2.section-content__title|Страница «Блог»
+                        .section-content__page
+                            .admin-block
+                                .list-articles|Список статей:
+                                    ul.list-articles__list
+                                        li.list-articles__item
+                                            |Статья 1
+                                        li.list-articles__item
+                                            |Статья 2
+
+                            .wraper-form-blog
+                                .admin-block
+                                    form.form-blog.js-form-blog(action="/api/blog" method="POST")
+                                        .wrapper-row
+                                            .form-admin__row
+                                                label.form-blog__label
+                                                    .title-input|Название статьи:
+                                                    input.form-admin__input(type="text" value="" name="title" placeholder="Введите заголовок статьи" required)
+                                            .form-admin__row
+                                                label.form-blog__label
+                                                    .title-input|Дата публикации
+                                                    input.form-admin__input(type="date" value="" name="date" required)
+                                            .form-admin__row
+                                                label.form-blog__label
+                                                    .title-input|Введите текст статьи
+                                                    textarea.form-admin__input.form-admin__input-area(placeholder="Введите текст статьи" value="" name="text" required)
+                                        .form-admin__row
+                                            button.contact-form__btn.js-save-blog(type="submit")|Сохранить

@@ -78,6 +78,8 @@ if(-1 !== pageActive.indexOf('about')){
     __webpack_require__(5);
 } else if(-1 !== pageActive.indexOf('blog')){
     __webpack_require__(6);
+} else if(-1 !== pageActive.indexOf('admin')){
+    __webpack_require__(7);
 }
 
 
@@ -208,7 +210,7 @@ window.onload = ()=> {
 
 var textProc = document.getElementsByClassName('js-text-svg-prel');
 textProc = textProc[0];
-var array=[];
+var array = [];
  var totalBg = document.getElementsByTagName('*')
 
  for(var i = 0; i < totalBg.length; i++){
@@ -217,10 +219,10 @@ var array=[];
 
      if(urlIm) {
 
-        var re=/url\("\.{1,2}(.+)"\)/;
+        var re = /url\("\.{1,2}(.+)"\)/;
         var found = urlIm.match(re)
-        var image=document.createElement('img')
-            image.src=found[1];
+        var image = document.createElement('img')
+            image.src = found[1];
          array.push(image);
      }
      if(urlSrc) array.push(totalBg[i]);
@@ -228,7 +230,7 @@ var array=[];
 
 for (var i = 0; i < array.length; i++) {
      var proc = 0;
-     array[i].onload=()=>{
+     array[i].onload = ()=>{
          proc += 100/array.length;
          textProc.innerHTML = Math.round(proc -1 ) + '%'
      }
@@ -403,7 +405,7 @@ window.onscroll= () =>{
         var elPos = element.getBoundingClientRect()
         var activeEl = elPos.top+elPos.height - (window.innerHeight) ;
 
-        if (activeEl<0){
+        if (activeEl < 0){
             skillElements[index].classList.add('active');
             skillElements.splice(index,1);
         }
@@ -490,7 +492,7 @@ function activeSl(active) {
     activeSlidePrev = active - 1;
     activeSlideNext = active + 1;
     if(activeSlidePrev < 0) activeSlidePrev = slides.length - 1
-    if(activeSlideNext>slides.length - 1) activeSlideNext = 0
+    if(activeSlideNext > slides.length - 1) activeSlideNext = 0
 
 
     sliderImages.style.cssText="opacity: 0;";
@@ -552,11 +554,11 @@ var articles = document.getElementsByClassName('js-block-right-articles');
 var articlesChild = articles[0].children;
 var menuLink = document.getElementsByClassName('nav-article__items');
 
-for(var z =0;z<menuLink.length;z++){
+for(var z = 0;z < menuLink.length; z++){
     menuLink[z].onclick = (e)=>{
 
         var numberArticle = e.toElement.getAttribute('data-name');
-        for(var x =0; x<articles[0].children.length;x++){
+        for(var x = 0; x < articles[0].children.length; x++){
 
             if(articles[0].children[x].getAttribute('data-name') == numberArticle)  var scrollPosition = articles[0].children[x].offsetTop+headerHeight;
         }
@@ -565,8 +567,8 @@ for(var z =0;z<menuLink.length;z++){
         var top = windPos;
 
         var scr = setInterval(function () {
-            if(top<coord){
-                top +=5;
+            if(top < coord){
+                top += 5;
                 window.scrollTo(0, top);
                 if (top > coord) {
                     clearInterval(scr);
@@ -597,19 +599,19 @@ window.onscroll= () =>{
 
 
     var windPos = window.pageYOffset+30;
-    if(docWidth>768){
-        windPos>headerHeight ? menuNav.style.cssText=`position: fixed; top:25px; left:${blockLeftPosLeft}; width:${menuNavWidth}px;` : menuNav.style.cssText='position: relative; '
+    if(docWidth > 768){
+        windPos>headerHeight ? menuNav.style.cssText = `position: fixed; top:25px; left:${blockLeftPosLeft}; width:${menuNavWidth}px;` : menuNav.style.cssText='position: relative; '
     }
     var articlesPos = articles[0].getBoundingClientRect();
     if(articlesPos.top<0){
 
-        for(var i=0; i<articlesChild.length;i++){
+        for(var i = 0; i < articlesChild.length; i++){
             var articlePosCh = articlesChild[i].offsetTop+headerHeight;
             var articlePosBlock = articlesChild[i].getBoundingClientRect();
-            if (windPos>articlePosCh-50 && windPos<articlePosBlock.height+articlePosCh-50){
+            if (windPos > articlePosCh - 50 && windPos < articlePosBlock.height + articlePosCh - 50){
                 var elMenuNav = menuNav.getElementsByClassName('nav-article__list')[0];
-                for(var z =0; z<elMenuNav.children.length; z++){
-                    if (elMenuNav.children[i]!==elMenuNav.children[z]) {
+                for(var z = 0; z < elMenuNav.children.length; z++){
+                    if (elMenuNav.children[i] !== elMenuNav.children[z]) {
                         elMenuNav.children[z].classList.remove('nav-article__items-active')
                     }
                 }
@@ -623,6 +625,64 @@ window.onscroll= () =>{
 
 
 
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports) {
+
+var doc = document;
+var navAdminLink = doc.getElementsByClassName('js-admin-link');
+var blockLink = doc.getElementsByClassName('section-content__tab');
+var formBlog = doc.getElementsByClassName('js-form-blog');
+
+var btnSaveBlog = doc.getElementsByClassName('js-save-blog')[0];
+
+function clearActive() {
+    for (var i = 0; i < navAdminLink.length; i++) {
+        navAdminLink[i].classList.remove('nav-admin__link-active');
+        blockLink[i].classList.remove('section-content__tab-active');
+    }
+}
+
+function activeBlock(data) {
+    for(var z = 0; z < blockLink.length; z++){
+        if(blockLink[z].getAttribute('data-name') == data) {
+            blockLink[z].classList.add('section-content__tab-active');
+        }
+    }
+}
+
+for (var i = 0; i < navAdminLink.length; i++) {
+    navAdminLink[i].onclick = (e)=> {
+        clearActive();
+        e.toElement.classList.add('nav-admin__link-active');
+        var activeBlockData = e.toElement.getAttribute('data-name');
+        activeBlock(activeBlockData);
+    }
+}
+
+btnSaveBlog.onclick = (e)=>{
+    e.preventDefault()
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST',"http://localhost:3000/api/blog",true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    var dataFull = formBlog[0].getElementsByTagName('input');
+    var dataArea = formBlog[0].getElementsByTagName('textarea')[0];
+    var ObjRes={}
+    for( var i = 0; i < dataFull.length; i++){
+        ObjRes[dataFull[i].name] = dataFull[i].value;
+    }
+    ObjRes[dataArea.name] = dataArea.value;
+    xhr.send(JSON.stringify(ObjRes))
+    xhr.addEventListener('load', ()=>{
+        if(xhr.status == 201){
+            console.log(xhr.response)
+        }else {
+            console.log(xhr)
+        }
+    })
+
+}
 
 /***/ })
 /******/ ]);

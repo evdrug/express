@@ -43,3 +43,4 @@ process.on('SININT', function () {
 
 
 require('./blog');
+require('./skill');
