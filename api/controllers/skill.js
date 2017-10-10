@@ -9,15 +9,13 @@ module.exports.getSkilles = function (req, res) {
     skill.find().then(items => {
         if(!items.length) {
         res.status(200).json({skilles: skillText});
-    } else {
-        res.status(200).json({skilles: items});
-    }
-})
-
+        } else {
+            res.status(200).json({skilles: items});
+        }
+    })
 }
 
 module.exports.createSkilles = function (req, res) {
-    console.log(req.body)
 
     const Model = mongoose.model('skill');
 
@@ -32,17 +30,17 @@ module.exports.createSkilles = function (req, res) {
         .then(item => {
         return res.status(201)
             .json({status: 'Знания успешно добавлены'});
-}, err => {
-        //если есть ошибки, то получаем их список и так же передаем
-        const error = Object
-            .keys(err.errors)
-            .map(key => err.errors[key].message)
-    .join(', ');
+    }, err => {
+            //если есть ошибки, то получаем их список и так же передаем
+            const error = Object
+                .keys(err.errors)
+                .map(key => err.errors[key].message)
+        .join(', ');
 
         //обрабатываем  и отправляем
         res.status(404)
             .json({
-                status: 'При добавление знаний произошла ошибка: ' + error
+                status: 'При добавление знания произошла ошибка: ' + error
             });
     });
 

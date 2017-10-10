@@ -11,15 +11,25 @@ module.exports.getAbout = function(req, res, next) {
         method: "GET",
         json: {}
     }
-
+    function roundDown(number, precision) {
+        return Math.floor(number / precision) * precision;
+    }
     const sendObj = { title: 'Обо мне' };
     http(requestOptions, function (error, response, body) {
-        var objectSkill = [];
-
+        var objectSkill = {};
+        var data ={objectSkill};
         for(var i = 0; i < body.skilles.length; i++) {
-            objectSkill[body.skilles[i].type] = [`${body.skilles[i].title}: ${body.skilles[i].procent}`]
+            var title = body.skilles[i].title;
+            var proc = body.skilles[i].procent;
+            proc = roundDown(proc,5);
+            if(!objectSkill[body.skilles[i].type]){
+                objectSkill[body.skilles[i].type] = {}
+                objectSkill[body.skilles[i].type][title]=proc
+            } else {
+                objectSkill[body.skilles[i].type][title]=proc
+            }
         }
-        console.log(objectSkill)
-        res.render('pages/about', Object.assign(sendObj, body));
+        res.render('pages/about', Object.assign(sendObj, data));
+        console.log(Object.assign(sendObj, data))
     })
 }
