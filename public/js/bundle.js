@@ -370,6 +370,24 @@ if(formAut) {
         if(!validateCheckRbtn(checkRbtn,'Вам стоит еще раз подумать!')){
             return
         }
+
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST',"http://localhost:3000/api/user",true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        var ObjRes={
+            "login":avtInput.login.value,
+            "password":avtInput.password.value
+        }
+        console.log(ObjRes)
+        xhr.send(JSON.stringify(ObjRes))
+        xhr.addEventListener('load', ()=>{
+            if(xhr.status == 201){
+                console.log(xhr.response)
+            }else {
+                console.log(xhr)
+            }
+        })
+
     }
     checkBot.onclick = function (e) {
         if(!checkBot.checked){

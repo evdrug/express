@@ -4,6 +4,7 @@ const apiOptions = {
     server: "http://localhost:3000"
 }
 module.exports.getAbout = function(req, res, next) {
+    console.log(req.session);
 
     const pathApiSkill = '/api/skill';
     const requestOptions = {
