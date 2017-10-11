@@ -7,6 +7,10 @@ var bodyParser = require('body-parser');
 
 require('./api/models/bd');
 
+const mongoose = require('mongoose');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+
 var index = require('./routes/index');
 var indexApi = require('./api/routes/index');
 // var users = require('./routes/users');
@@ -24,6 +28,19 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+
+app.use(session({
+    secret: 'pass',
+    cookie: {
+        path: '/',
+        httpOnly: true,
+        maxAge: null
+    },
+    saveUninitialized: false,
+    resave: false,
+    store: new MongoStore({mongooseConnection: mongoose.connection})
+}));
 
 app.use('/', index);
 app.use('/api', indexApi);

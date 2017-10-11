@@ -5,15 +5,15 @@ const Shema = mongoose.Schema;
 const SkillShema = new Shema({
     type: {
         type: String,
-        required: [true,'Не указан заголовок статьи']
+        required: [true,'Не указан тип знаний']
     },
     title: {
         type: String,
-        required: [true,'Не указана дата']
+        required: [true,'Не указано название знания']
     },
     procent: {
         type: Number,
-        required: [true,'Нет содержимого статьи']
+        required: [true,'Не указан процент знания']
     }
 });
 

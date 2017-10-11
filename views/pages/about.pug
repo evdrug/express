@@ -76,100 +76,19 @@ block content
                             .can-use__text
                                 |Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачи на Backend. Но давайте по порядку.
                         .skill
-                            each index in skilles
-                                .article__title= index.type
-                            .skill__row.js-skill-row
-                                .skill-cont
-                                    .skill-cont___title
-                                        |Frontend
-                                    .skill-cont___data
-                                        ul.skill__list
-                                            li.skill__items
-                                                | <svg class="circles" viewBox="0 0 110 110">
-                                                |         <circle r="45" cx="50%" cy="50%" fill="none" class="circle__bg" />
-                                                |         <circle r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)" class="circle__layer circle-75" />
-                                                |</svg>
-                                                .skill__desc
-                                                    |HTML
-                                            li.skill__items
-                                                | <svg class="circles" viewBox="0 0 110 110">
-                                                |         <circle r="45" cx="50%" cy="50%" fill="none" class="circle__bg" />
-                                                |         <circle r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)" class="circle__layer circle-55" />
-                                                | </svg>
-                                                .skill__desc
-                                                    | CSS3
-                                            li.skill__items
-                                                | <svg class="circles" viewBox="0 0 110 110">
-                                                |         <circle r="45" cx="50%" cy="50%" fill="none" class="circle__bg" />
-                                                |         <circle r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)" class="circle__layer circle-45" />
-                                                | </svg>
-                                                .skill__desc
-                                                    | JavaScript<br>& jQuery
-
-                            .skill__row.js-skill-row
-                                .skill-cont
-                                    .skill-cont___title
-                                        |Backend
-                                    .skill-cont___data
-                                        ul.skill__list
-                                            li.skill__items
-                                                | <svg class="circles" viewBox="0 0 110 110">
-                                                |         <circle r="45" cx="50%" cy="50%" fill="none" class="circle__bg" />
-                                                |         <circle r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)" class="circle__layer circle-40" />
-                                                | </svg>
-                                                .skill__desc
-                                                    | PHP
-                                            li.skill__items
-                                                | <svg class="circles" viewBox="0 0 110 110">
-                                                |         <circle r="45" cx="50%" cy="50%" fill="none" class="circle__bg" />
-                                                |         <circle r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)" class="circle__layer circle-30" />
-                                                | </svg>
-                                                .skill__desc
-                                                    | mySQL
-                                            li.skill__items
-                                                | <svg class="circles" viewBox="0 0 110 110">
-                                                |         <circle r="45" cx="50%" cy="50%" fill="none" class="circle__bg" />
-                                                |         <circle r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)" class="circle__layer circle-10" />
-                                                | </svg>
-                                                .skill__desc
-                                                    | Node.js<br>& npm
-                                            li.skill__items
-                                                | <svg class="circles" viewBox="0 0 110 110">
-                                                |         <circle r="45" cx="50%" cy="50%" fill="none" class="circle__bg" />
-                                                |         <circle r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)" class="circle__layer circle-5" />
-                                                | </svg>
-                                                .skill__desc
-                                                    | Mongo.db
-
-
-                            .skill__row.js-skill-row
-                                .skill-cont
-                                    .skill-cont___title
-                                        |WorkFlow
-                                    .skill-cont___data
-                                        ul.skill__list
-                                            li.skill__items
-                                                | <svg class="circles" viewBox="0 0 110 110">
-                                                |         <circle r="45" cx="50%" cy="50%" fill="none" class="circle__bg" />
-                                                |         <circle r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)" class="circle__layer circle-75" />
-                                                | </svg>
-                                                .skill__desc
-                                                    | Git
-                                            li.skill__items
-                                                | <svg class="circles" viewBox="0 0 110 110">
-                                                |         <circle r="45" cx="50%" cy="50%" fill="none" class="circle__bg" />
-                                                |         <circle r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)" class="circle__layer circle-55" />
-                                                | </svg>
-                                                .skill__desc
-                                                    | Gulp
-                                            li.skill__items
-                                                | <svg class="circles" viewBox="0 0 110 110">
-                                                |         <circle r="45" cx="50%" cy="50%" fill="none" class="circle__bg" />
-                                                |         <circle r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)" class="circle__layer circle-45" />
-                                                | </svg>
-                                                .skill__desc
-                                                    | Bower
-
+                            each index,key in objectSkill
+                                .skill__row.js-skill-row
+                                    .skill-cont
+                                        .skill-cont___title= key
+                                        .skill-cont___data
+                                            ul.skill__list
+                                                each item,key in index
+                                                    li.skill__items
+                                                        | <svg class="circles" viewBox="0 0 110 110">
+                                                        |         <circle r="45" cx="50%" cy="50%" fill="none" class="circle__bg" />
+                                                        |         <circle r="45" cx="50%" cy="50%" transform="rotate(-90 55 55)" class="circle__layer circle-#{item}" />
+                                                        | </svg>
+                                                        .skill__desc=key
 
         section.section__maps
                 .contact-info
