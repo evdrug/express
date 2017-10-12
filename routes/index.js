@@ -18,6 +18,6 @@ router.get('/', ctrlIndex.getIndex);
 router.get('/blog', ctrlBlog.getBlog);
 router.get('/works', ctrlWorks.getWorks);
 router.get('/about', ctrlAbout.getAbout);
-router.get('/admin', isAdmin, ctrlAdmin.getAdmin);
+router.get('/admin',  ctrlAdmin.getAdmin);
 
 module.exports = router;

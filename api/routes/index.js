@@ -23,7 +23,8 @@ const ctrlSlider= require('../controllers/slider');
 
 router.get('/slider', ctrlSlider.getSlider);
 router.post('/slider', ctrlSlider.createSlider);
-
+router.put('/slider/:id', ctrlSlider.editSlider);
+router.delete('/slider/:id', ctrlSlider.deleteSlider);
 
 
 

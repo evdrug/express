@@ -438,10 +438,10 @@ window.onscroll= () =>{
 /***/ (function(module, exports) {
 
 
-var slides = [
+var slider = [
     {
         image: 'bg-1',
-        description: 'Дизайн интерьеров',
+        description: 'Дизайн интерьеровq',
         tags: ['html', 'css'],
         link: "http://ya.ru"
     },
@@ -456,20 +456,34 @@ var slides = [
         description: 'сайт школы онлайн образования',
         tags: ['html', 'css', 'javascript'],
         link: "http://loftshcool.com"
-    },
-    {
-        image: 'bg-3',
-        description: 'сайт школы ',
-        tags: ['html', 'wwww', 'javascript'],
-        link: "http://loftshcool.com"
     }
 ];
+
+
+const xhr = new XMLHttpRequest();
+xhr.open('GET',"http://localhost:3000/api/slider",true);
+xhr.setRequestHeader("Content-Type", "application/json");
+xhr.send()
+xhr.addEventListener('load', ()=>{
+    if(xhr.status == 200){
+    var ttt = JSON.parse(xhr.response);
+        slider = ttt['sliders'];
+
+
+    }else {
+        console.log(xhr)
+    }
+})
+
+
+
+
 var activeSlide = 0;
-var activeSlidePrev = slides.length - 1;
+var activeSlidePrev = slider.length - 1;
 var activeSlideNext = activeSlide + 1;
 
 var sliderTitle = document.getElementsByClassName('js-slider-title')[0],
-    sliderSchool = document.getElementsByClassName('js-school')[0],
+    sliderchool = document.getElementsByClassName('js-school')[0],
     sliderTags = document.getElementsByClassName('js-slider-tags')[0],
     sliderLink = document.getElementsByClassName('js-slider-link')[0],
     sliderImages = document.getElementsByClassName('js-slider-images')[0],
@@ -489,11 +503,11 @@ function imgCorrect (pref, img) {
 }
 
 function inicial(activeSlide) {
-    sliderTitle.innerHTML=slides[activeSlide].description;
-    var slideBg = slides[activeSlide].image,
-        slideBgPrev = slides[activeSlidePrev].image,
-        slideBgNext = slides[activeSlideNext].image;
-    var activeSlideTags = slides[activeSlide].tags
+    sliderTitle.innerHTML=slider[activeSlide].description;
+    var slideBg = slider[activeSlide].image,
+        slideBgPrev = slider[activeSlidePrev].image,
+        slideBgNext = slider[activeSlideNext].image;
+    var activeSlideTags = slider[activeSlide].tags
     sliderTags.innerHTML=activeSlideTags.join (", ");
     imgCorrect (sliderImages, slideBg);
     imgCorrect (sliderImagesPrevPic, slideBgPrev);
@@ -504,17 +518,17 @@ function inicial(activeSlide) {
 inicial(activeSlide)
 
 function activeSl(active) {
-    if (active < 0) active= slides.length - 1
-    if (active > slides.length - 1) active = 0
+    if (active < 0) active= slider.length - 1
+    if (active > slider.length - 1) active = 0
     activeSlide = active
     activeSlidePrev = active - 1;
     activeSlideNext = active + 1;
-    if(activeSlidePrev < 0) activeSlidePrev = slides.length - 1
-    if(activeSlideNext > slides.length - 1) activeSlideNext = 0
+    if(activeSlidePrev < 0) activeSlidePrev = slider.length - 1
+    if(activeSlideNext > slider.length - 1) activeSlideNext = 0
 
 
     sliderImages.style.cssText="opacity: 0;";
-    sliderSchool.style.cssText="transform:translateX(-999px);";
+    sliderchool.style.cssText="transform:translateX(-999px);";
     sliderImagesPrevPic.style.cssText="transform:translateY(-150%);";
     sliderImagesNextPic.style.cssText="transform:translateY(150%);";
 
@@ -523,7 +537,7 @@ function activeSl(active) {
     setTimeout(
         function () {
             sliderImages.style.cssText="transition: 2.5s; opacity: 1;"
-            sliderSchool.style.cssText="transition: 1.5s; opacity: 1;"
+            sliderchool.style.cssText="transition: 1.5s; opacity: 1;"
             sliderImagesPrevPic.style.cssText="transition: 1s; opacity: 1;";
             sliderImagesNextPic.style.cssText="transition: 1s; opacity: 1;";
         },
